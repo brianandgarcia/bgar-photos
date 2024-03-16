@@ -7,7 +7,7 @@ export const getGlobalData = () => {
     : 'Albums';
   const footerText = process.env.BLOG_FOOTER_TEXT
     ? decodeURI(process.env.BLOG_FOOTER_TEXT)
-    : 'All rights reserved.';
+    : '© Brian Garcia. All rights reserved.';
 
   return {
     name,
