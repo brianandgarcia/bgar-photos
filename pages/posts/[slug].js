@@ -44,16 +44,17 @@ export default function PostPage({
       />
       <Header name={globalData.name} />
       <article className="px-2 md:px-0">
-        <header>
-          <h1 className="text-3xl md:text-5xl dark:text-white text-center mb-12">
+        <header className='border-b-4 mb-20'>
+          <h1 className="text-3xl md:text-5xl dark:text-white mb-12">
             {frontMatter.title}
           </h1>
+          
           {frontMatter.description && (
             <p className="text-xl mb-4">{frontMatter.description}</p>
           )}
         </header>
         <main>
-          <article className="prose dark:prose-dark">
+          <article className="prose dark:prose-dark grid grid-cols-1 md:grid-cols-2 gap-2">
             <MDXRemote {...source} components={components} />
           </article>
         </main>

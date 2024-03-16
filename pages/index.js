@@ -17,7 +17,7 @@ export default function Index({ posts, globalData }) {
         <h1 className="text-3xl lg:text-5xl text-center mb-12">
           {globalData.blogTitle}
         </h1>
-        <ul className="w-full">
+        <ul className="w-full flex gap-3">
           {posts.map((post) => (
             <li
               key={post.filePath}
