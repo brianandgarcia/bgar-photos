@@ -16,7 +16,6 @@ import Header from '../../components/Header';
 import Layout, { GradientBackground } from '../../components/Layout';
 import SEO from '../../components/SEO';
 import Image from "next/image";
-import { CldImage } from 'next-cloudinary';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -27,7 +26,7 @@ const components = {
   // It also works with dynamically-imported components, which is especially
   // useful for conditionally loading components for certain routes.
   // See the notes in README.md for more details.
-  Head, Image, CldImage
+  Head, Image
 };
 
 export default function PostPage({
