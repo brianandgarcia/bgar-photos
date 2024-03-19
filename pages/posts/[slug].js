@@ -55,7 +55,7 @@ export default function PostPage({
           )}
         </header>
         <main>
-          <article className="prose dark:prose-dark grid grid-cols-1 md:grid-cols-2 gap-2">
+          <article className="prose dark:prose-dark">
             <MDXRemote {...source} components={components} />
           </article>
         </main>
