@@ -17,6 +17,9 @@ import Layout, { GradientBackground } from '../../components/Layout';
 import SEO from '../../components/SEO';
 import Image from "next/image";
 import { CldImage } from 'next-cloudinary';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -27,9 +30,22 @@ const components = {
   // It also works with dynamically-imported components, which is especially
   // useful for conditionally loading components for certain routes.
   // See the notes in README.md for more details.
-  Head, Image, CldImage, Link
+  Head, Image, CldImage, Link, Carousel
 };
-
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 2
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
 export default function PostPage({
   source,
   frontMatter,
@@ -56,6 +72,43 @@ export default function PostPage({
         </header>
         <main>
           <article className="prose dark:prose-dark">
+            <Carousel responsive={responsive}>
+            {frontMatter.image1 &&
+              <div>
+                <CldImage src={frontMatter.image1} alt="soemthing" width="700" height="450" />
+              </div>
+            }
+            {frontMatter.image2 &&
+              <div>
+                <CldImage src={frontMatter.image2} alt="soemthing" width="700" height="450" />
+              </div>
+            }
+            {frontMatter.image3 &&
+              <div>
+                <CldImage src={frontMatter.image3} alt="soemthing" width="700" height="450" />
+              </div>
+            }
+            {frontMatter.image4 &&
+              <div>
+                <CldImage src={frontMatter.image4} alt="soemthing" width="700" height="450" />
+              </div>
+            }
+            {frontMatter.image5 &&
+              <div>
+                <CldImage src={frontMatter.image5} alt="soemthing" width="700" height="450" />
+              </div>
+            }
+            {frontMatter.image6 &&
+              <div>
+                <CldImage src={frontMatter.image6} alt="soemthing" width="700" height="450" />
+              </div>
+            }
+            {frontMatter.image7 &&
+              <div>
+                <CldImage src={frontMatter.image7} alt="soemthing" width="700" height="450" />
+              </div>
+            } 
+            </Carousel>
             <MDXRemote {...source} components={components} />
           </article>
         </main>
