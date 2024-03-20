@@ -72,7 +72,12 @@ export default function PostPage({
         </header>
         <main>
           <article className="prose dark:prose-dark">
-            <Carousel responsive={responsive}>
+            <Carousel 
+            responsive={responsive}
+            ssr={false}
+            transitionDuration={10}
+            swipeable={true}
+            >
             {frontMatter.image1 &&
               <div>
                 <CldImage src={frontMatter.image1} alt="soemthing" width="700" height="450" />
