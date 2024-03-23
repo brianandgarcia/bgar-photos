@@ -39,7 +39,7 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2
+    items: 1
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
@@ -61,8 +61,8 @@ export default function PostPage({
       />
       <Header name={globalData.name} />
       <article className="px-2 md:px-0">
-        <header className='border-b-4 mb-20'>
-          <h1 className="text-3xl md:text-5xl dark:text-white mb-12">
+        <header className='mb-10'>
+          <h1 className="text-3xl md:text-5xl dark:text-white">
             {frontMatter.title}
           </h1>
           
@@ -72,45 +72,53 @@ export default function PostPage({
         </header>
         <main>
           <article className="prose dark:prose-dark">
+            {frontMatter.cover &&
+              <div>
+                <CldImage src={frontMatter.cover} alt="soemthing" width="1400" height="500" />
+              </div>
+            }
             <Carousel 
             responsive={responsive}
-            ssr={false}
-            transitionDuration={10}
+            ssr={true}
+            customTransition="all .5"
+            transitionDuration={500}
             swipeable={true}
+            showDots={true}
+            infinite={true}
             >
             {frontMatter.image1 &&
               <div>
-                <CldImage src={frontMatter.image1} alt="soemthing" width="700" height="450" />
+                <CldImage src={frontMatter.image1} alt="soemthing" width="1280" height="720" />
               </div>
             }
             {frontMatter.image2 &&
               <div>
-                <CldImage src={frontMatter.image2} alt="soemthing" width="700" height="450" />
+                <CldImage src={frontMatter.image2} alt="soemthing" width="1280" height="720" />
               </div>
             }
             {frontMatter.image3 &&
               <div>
-                <CldImage src={frontMatter.image3} alt="soemthing" width="700" height="450" />
+                <CldImage src={frontMatter.image3} alt="soemthing" width="1280" height="720" />
               </div>
             }
             {frontMatter.image4 &&
               <div>
-                <CldImage src={frontMatter.image4} alt="soemthing" width="700" height="450" />
+                <CldImage src={frontMatter.image4} alt="soemthing" width="1280" height="720" />
               </div>
             }
             {frontMatter.image5 &&
               <div>
-                <CldImage src={frontMatter.image5} alt="soemthing" width="700" height="450" />
+                <CldImage src={frontMatter.image5} alt="soemthing" width="1280" height="720" />
               </div>
             }
             {frontMatter.image6 &&
               <div>
-                <CldImage src={frontMatter.image6} alt="soemthing" width="700" height="450" />
+                <CldImage src={frontMatter.image6} alt="soemthing" width="1280" height="720" />
               </div>
             }
             {frontMatter.image7 &&
               <div>
-                <CldImage src={frontMatter.image7} alt="soemthing" width="700" height="450" />
+                <CldImage src={frontMatter.image7} alt="soemthing" width="1280" height="720" />
               </div>
             } 
             </Carousel>
@@ -124,7 +132,7 @@ export default function PostPage({
                 <p className="uppercase text-gray-500 mb-4 dark:text-white dark:opacity-60">
                   Previous
                 </p>
-                <h4 className="text-2xl text-gray-700 mb-6 dark:text-white">
+                <h4 className="text-2xl text-gray-1280 mb-6 dark:text-white">
                   {prevPost.title}
                 </h4>
                 <ArrowIcon className="transform rotate-180 mx-auto md:mr-0 mt-auto" />
@@ -137,7 +145,7 @@ export default function PostPage({
                 <p className="uppercase text-gray-500 mb-4 dark:text-white dark:opacity-60">
                   Next
                 </p>
-                <h4 className="text-2xl text-gray-700 mb-6 dark:text-white">
+                <h4 className="text-2xl text-gray-1280 mb-6 dark:text-white">
                   {nextPost.title}
                 </h4>
                 <ArrowIcon className="mt-auto mx-auto md:ml-0" />

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const sunIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -83,6 +85,8 @@ export default function Footer({ copyrightText }) {
       <p className="dark:text-white uppercase mb-3 font-bold opacity-60">
         {copyrightText}
       </p>
+      <Link rel="me" href="https://bgarr.com/@Brian" className="dark:text-white uppercase mb-3 font-bold opacity-60">Mastodon</Link>
+
       <ThemeSwitcher />
     </footer>
   );
