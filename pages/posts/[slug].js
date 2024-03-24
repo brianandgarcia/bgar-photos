@@ -16,7 +16,6 @@ import Header from '../../components/Header';
 import Layout, { GradientBackground } from '../../components/Layout';
 import SEO from '../../components/SEO';
 import Image from "next/image";
-import { CldImage } from 'next-cloudinary';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -30,12 +29,13 @@ const components = {
   // It also works with dynamically-imported components, which is especially
   // useful for conditionally loading components for certain routes.
   // See the notes in README.md for more details.
-  Head, Image, CldImage, Link, Carousel
+  Head, Image, Image, Link, Carousel
 };
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 2
+    items: 1,
+    partialVisibilityGutter: 40
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -45,6 +45,9 @@ const responsive = {
     breakpoint: { max: 464, min: 0 },
     items: 1
   }
+};
+const coverURL = {
+  
 };
 export default function PostPage({
   source,
@@ -59,70 +62,72 @@ export default function PostPage({
         title={`${frontMatter.title} - ${globalData.name}`}
         description={frontMatter.description}
       />
-      <Header name={globalData.name} />
-      <article className="px-2 md:px-0">
-        <header className='mb-10'>
-          <h1 className="text-3xl md:text-5xl dark:text-white">
-            {frontMatter.title}
-          </h1>
-          
-          {frontMatter.description && (
-            <p className="text-xl mb-4">{frontMatter.description}</p>
-          )}
-        </header>
+      <div className="relative mb-0" style={{ backgroundImage: `url(${frontMatter.cover})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-75"></div>
+        <div className='mx-auto flex flex-col justify-between min-h-[25em] relative z-10'>
+          <Header name={globalData.name} />
+          <header className='pb-5'>
+            <div className='container'>
+              <h1 className="text-3xl md:text-5xl dark:text-white text-white z-10 font-semibold">
+                {frontMatter.title}
+              </h1>
+              <span className='text-[#ffffffd9] text-2xl text-light pt-3'>Date: July 23, 2023</span>
+            </div>
+          </header>
+        </div>
+      </div>
+      <article className="px-2 md:px-0 bg-gray-50">
         <main>
-          <article className="prose dark:prose-dark">
-            {frontMatter.cover &&
-              <div>
-                <CldImage src={frontMatter.cover} alt="soemthing" width="1400" height="500" />
-              </div>
-            }
+          <article className="prose dark:prose-dark container mx-auto">
+
             <Carousel 
             responsive={responsive}
-            ssr={true}
-            customTransition="all .5"
-            transitionDuration={500}
-            swipeable={true}
             showDots={true}
             infinite={true}
+            draggable={true}
+            centerMode={true}
+            autoPlay={true}
+            autoPlaySpeed={5000}
             >
             {frontMatter.image1 &&
               <div>
-                <CldImage src={frontMatter.image1} alt="soemthing" width="1280" height="720" />
+                <Image src={frontMatter.image1} alt="soemthing" width="1000" height="667" priority />
               </div>
             }
             {frontMatter.image2 &&
               <div>
-                <CldImage src={frontMatter.image2} alt="soemthing" width="1280" height="720" />
+                <Image src={frontMatter.image2} alt="soemthing" width="1000" height="667" priority />
               </div>
             }
             {frontMatter.image3 &&
               <div>
-                <CldImage src={frontMatter.image3} alt="soemthing" width="1280" height="720" />
+                <Image src={frontMatter.image3} alt="soemthing" width="1000" height="667" priority/>
               </div>
             }
             {frontMatter.image4 &&
               <div>
-                <CldImage src={frontMatter.image4} alt="soemthing" width="1280" height="720" />
+                <Image src={frontMatter.image4} alt="soemthing" width="1000" height="667" priority />
               </div>
             }
             {frontMatter.image5 &&
               <div>
-                <CldImage src={frontMatter.image5} alt="soemthing" width="1280" height="720" />
+                <Image src={frontMatter.image5} alt="soemthing" width="1000" height="667" priority />
               </div>
             }
             {frontMatter.image6 &&
               <div>
-                <CldImage src={frontMatter.image6} alt="soemthing" width="1280" height="720" />
+                <Image src={frontMatter.image6} alt="soemthing" width="1000" height="667" priority />
               </div>
             }
             {frontMatter.image7 &&
               <div>
-                <CldImage src={frontMatter.image7} alt="soemthing" width="1280" height="720" />
+                <Image src={frontMatter.image7} alt="soemthing" width="1000" height="667" priority />
               </div>
             } 
             </Carousel>
-            <MDXRemote {...source} components={components} />
+            <div className='max-w-[800px] mx-auto text-2xl'>
+              <MDXRemote {...source} components={components} />
+            </div>
           </article>
         </main>
         <div className="grid md:grid-cols-2 lg:-mx-24 mt-12">
@@ -132,7 +137,7 @@ export default function PostPage({
                 <p className="uppercase text-gray-500 mb-4 dark:text-white dark:opacity-60">
                   Previous
                 </p>
-                <h4 className="text-2xl text-gray-1280 mb-6 dark:text-white">
+                <h4 className="text-2xl text-gray-1000 mb-6 dark:text-white">
                   {prevPost.title}
                 </h4>
                 <ArrowIcon className="transform rotate-180 mx-auto md:mr-0 mt-auto" />
@@ -145,7 +150,7 @@ export default function PostPage({
                 <p className="uppercase text-gray-500 mb-4 dark:text-white dark:opacity-60">
                   Next
                 </p>
-                <h4 className="text-2xl text-gray-1280 mb-6 dark:text-white">
+                <h4 className="text-2xl text-gray-1000 mb-6 dark:text-white">
                   {nextPost.title}
                 </h4>
                 <ArrowIcon className="mt-auto mx-auto md:ml-0" />
