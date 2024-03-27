@@ -7,7 +7,7 @@ export const getGlobalData = () => {
     : 'Adventures';
   const footerText = process.env.BLOG_FOOTER_TEXT
     ? decodeURI(process.env.BLOG_FOOTER_TEXT)
-    : '© Brian Garcia. Built using Next.JS, TailwindCSS, and Markdown.';
+    : '© 2024 BGarr, All Rights Reserved. Built using Next.JS, TailwindCSS, and Markdown.';
 
   return {
     name,
