@@ -31,11 +31,11 @@ export default function Index({ posts, globalData }) {
           <ul className="w-full grid gap-3 grid-cols-1 lg:grid-cols-3">
             {posts.map((post) => (
             <Link
+                key={post.filePath}
                 as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
                 href={`/posts/[slug]`}
               >
               <li
-                key={post.filePath}
                 style={{ backgroundImage: `url(${post.data.thumb})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}
                 className="cursor-pointer relative rounded flex flex-col content-end text-white backdrop-blur-lg min-h-[400px] bg-white dark:bg-black dark:bg-opacity-30 bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition  max-w-[500px]"
               >
