@@ -15,3 +15,15 @@ h6 {
 body {
   font-family: var(--font-secondary);
 }
+
+.prose {
+  max-width: 100%;
+}
+
+.react-multi-carousel-list {
+  padding-bottom: 25px;
+}
+.react-multi-carousel-dot-list {
+  bottom: -10px !important;
+  padding: 12px !important;
+}
