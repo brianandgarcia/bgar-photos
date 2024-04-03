@@ -25,4 +25,5 @@ body {
 }
 .react-multi-carousel-dot-list {
   bottom: -10px !important;
+  padding: 12px !important;
 }

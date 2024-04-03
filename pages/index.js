@@ -37,7 +37,7 @@ export default function Index({ posts, globalData }) {
               >
               <li
                 style={{ backgroundImage: `url(${post.data.thumb})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}
-                className="cursor-pointer relative rounded flex flex-col content-end text-white backdrop-blur-lg min-h-[400px] bg-white dark:bg-black dark:bg-opacity-30 bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition  max-w-[500px]"
+                className="cursor-pointer relative flex flex-col content-end text-white backdrop-blur-lg min-h-[400px] bg-white dark:bg-black dark:bg-opacity-30 bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition  max-w-[500px]"
               >
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black transition-all opacity-75 hover:opacity-0 h-full"></div>
                   <a className="py-3 px-2 lg:px-8 block focus:outline-none focus:ring-4 absolute bottom-2">

@@ -21,7 +21,7 @@ const sunIcon = (
     <defs>
       <clipPath id="clip0_192_823">
         <path
-          className="fill-current text-white"
+          className="fill-current"
           d="M0 0H24V24H0z"
           transform="translate(.5)"
         ></path>
@@ -53,7 +53,7 @@ const moonIcon = (
 export default function Footer({ copyrightText }) {
   return (
     <footer className="py-16 flex flex-col items-center">
-      <p className="text-white uppercase mb-3 font-bold opacity-60">
+      <p className="uppercase mb-3 font-bold opacity-60">
         {copyrightText}
       </p>
     </footer>
