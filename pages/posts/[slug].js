@@ -20,15 +20,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 
-// Custom components/renderers to pass to MDX.
-// Since the MDX files aren't loaded by webpack, they have no knowledge of how
-// to handle import statements. Instead, you must include components in scope
-// here.
 const components = {
   a: CustomLink,
-  // It also works with dynamically-imported components, which is especially
-  // useful for conditionally loading components for certain routes.
-  // See the notes in README.md for more details.
   Head, Image, Image, Link, Carousel
 };
 const responsive = {
@@ -58,6 +51,17 @@ export default function PostPage({
   nextPost,
   globalData,
 }) {
+
+  const images = [
+    frontMatter.image1,
+    frontMatter.image2,
+    frontMatter.image3,
+    frontMatter.image4,
+    frontMatter.image5,
+    frontMatter.image6,
+    frontMatter.image7,
+  ].filter(Boolean);
+  
   return (
     <Layout>
       <SEO
@@ -90,41 +94,11 @@ export default function PostPage({
             autoPlay={true}
             autoPlaySpeed={5000}
             >
-            {frontMatter.image1 &&
-              <div>
-                <Image src={frontMatter.image1} alt="soemthing" width="1200" height="800" priority />
+            {images.map((imageSrc, index) => (
+              <div key={index}>
+                <Image src={imageSrc} alt="Carousel Image" width="1200" height="800" priority />
               </div>
-            }
-            {frontMatter.image2 &&
-              <div>
-                <Image src={frontMatter.image2} alt="soemthing" width="1200" height="800" priority />
-              </div>
-            }
-            {frontMatter.image3 &&
-              <div>
-                <Image src={frontMatter.image3} alt="soemthing" width="1200" height="800" priority/>
-              </div>
-            }
-            {frontMatter.image4 &&
-              <div>
-                <Image src={frontMatter.image4} alt="soemthing" width="1200" height="800" priority />
-              </div>
-            }
-            {frontMatter.image5 &&
-              <div>
-                <Image src={frontMatter.image5} alt="soemthing" width="1200" height="800" priority />
-              </div>
-            }
-            {frontMatter.image6 &&
-              <div>
-                <Image src={frontMatter.image6} alt="soemthing" width="1200" height="800" priority />
-              </div>
-            }
-            {frontMatter.image7 &&
-              <div>
-                <Image src={frontMatter.image7} alt="soemthing" width="1200" height="800" priority />
-              </div>
-            } 
+            ))}
             </Carousel>
             <div className='text-2xl p-5'>
               <MDXRemote {...source} components={components} />

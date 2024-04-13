@@ -27,3 +27,6 @@ body {
   bottom: -10px !important;
   padding: 12px !important;
 }
+.react-multi-carousel-dot--active button {
+  background: #cccccc !important;
+}
