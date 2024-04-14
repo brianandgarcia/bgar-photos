@@ -17,7 +17,7 @@ export default function Index({ posts, globalData }) {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-75"></div>
         <div className='mx-auto flex flex-col justify-between min-h-[25em] relative z-10'>
           <Header name={globalData.name} />
-          <header className='pb-32'>
+          <header className='pb-12'>
             <div className='container'>
               <h1 className="text-3xl md:text-5xl dark:text-white text-white z-10 font-semibold">
               {globalData.blogTitle}
@@ -27,7 +27,7 @@ export default function Index({ posts, globalData }) {
           </header>
         </div>
       </div>
-        <div className='container -mt-20'>
+        <div className='container'>
           <ul className="w-full grid gap-3 grid-cols-1 lg:grid-cols-3">
             {posts.map((post) => (
             <Link
