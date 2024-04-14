@@ -6,6 +6,7 @@ import {
   postFilePaths,
 } from '../../utils/mdx-utils';
 
+
 import { MDXRemote } from 'next-mdx-remote';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -85,7 +86,6 @@ export default function PostPage({
       <article className="px-2 md:px-0">
         <main>
           <article className="max-w-[1200px] mx-auto">
-
             <Carousel 
             responsive={responsive}
             showDots={true}
@@ -96,9 +96,10 @@ export default function PostPage({
             >
             {images.map((imageSrc, index) => (
               <div key={index}>
-                <Image src={imageSrc} alt="Carousel Image" width="1200" height="800" priority />
+                  <Image src={imageSrc} alt="Carousel Image" width="2100" height="1400" priority />
               </div>
             ))}
+          
             </Carousel>
             <div className='text-2xl p-5'>
               <MDXRemote {...source} components={components} />
