@@ -93,7 +93,7 @@ export default function PostPage({
             >
             {images.map((imageSrc, index) => (
               <div key={index}>
-                  <Image src={imageSrc} alt="Carousel Image" width="2100" height="1400" priority />
+                  <Image src={imageSrc} alt="Carousel Image" width="2100" height="1400" priority unoptimized />
               </div>
             ))}
           

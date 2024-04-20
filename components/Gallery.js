@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css'; // This line is new
+import Image from 'next/image';
 
 export default function Gallery({ images }) {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -15,6 +16,8 @@ export default function Gallery({ images }) {
             alt=""
             className='w-full md:w-1/2 mb-4'
             onClick={() => setSelectedImage(image)}
+            unoptimized
+            priority
           />
         ))}
       </div>

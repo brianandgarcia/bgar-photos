@@ -32,7 +32,7 @@ export default function RoadMap() {
                             <li>Ability to Buy Prints</li>
                             <li>Archive List</li>
                             <li>Sorting / Filtering</li>
-                            <li>Internal uploads/albums that aren't public</li>
+                            <li>Internal uploads/albums that aren&apos;t public</li>
                         </ul>
                     </div>
                 </div>
