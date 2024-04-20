@@ -19,6 +19,7 @@ import SEO from '../../components/SEO';
 import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Gallery from '../../components/Gallery';
 
 
 const components = {
@@ -53,15 +54,10 @@ export default function PostPage({
   globalData,
 }) {
 
-  const images = [
-    frontMatter.image1,
-    frontMatter.image2,
-    frontMatter.image3,
-    frontMatter.image4,
-    frontMatter.image5,
-    frontMatter.image6,
-    frontMatter.image7,
-  ].filter(Boolean);
+  const images = Object.keys(frontMatter)
+  .filter(key => key.startsWith('image'))
+  .map(imageKey => frontMatter[imageKey])
+  .filter(Boolean);
   
   return (
     <Layout>
@@ -86,6 +82,7 @@ export default function PostPage({
       <article className="px-2 md:px-0">
         <main>
           <article className="max-w-[1200px] mx-auto">
+          {frontMatter.displayType === 'carousel' ? (
             <Carousel 
             responsive={responsive}
             showDots={true}
@@ -101,9 +98,13 @@ export default function PostPage({
             ))}
           
             </Carousel>
+            ) : (
+              <Gallery images={images} />
+            )}
             <div className='text-2xl p-5'>
               <MDXRemote {...source} components={components} />
             </div>
+
           </article>
         </main>
         <div className="grid md:grid-cols-2 lg:-mx-24 mt-12">

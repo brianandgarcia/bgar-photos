@@ -30,3 +30,27 @@ body {
 .react-multi-carousel-dot--active button {
   background: #cccccc !important;
 }
+
+@media (min-width: 1024px) {
+  .gallery img {
+    width: calc(33.33% - 10px);
+    margin-bottom: 15px;
+  }
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+}

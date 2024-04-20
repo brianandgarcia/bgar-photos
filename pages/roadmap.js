@@ -8,24 +8,21 @@ export default function RoadMap() {
                     <div>
                         <h2 className="mb-2 font-bold">Happening Now</h2>
                         <ul className="list-disc">
-                            <li>Create new dev branch</li>
-                            <li>Designing two new layouts, one for photos only and one a story board</li>
+                            <li>Add React Lightbox</li>
                             <li>Add alt tags to markdown photos</li>
                         </ul>
                     </div>
                     <div>
                         <h2 className="mb-2 font-bold">To-Do List</h2>
                         <ul className="list-disc">
-                            <li>Add React Lightbox</li>
                             <li>Host Images on DigitalOcean</li>
-                            <li>Add better image quality</li>
-                            <li>Debate if I should remove markdown</li>
+                            <li>Implement Gallery Layout</li>
+                            <li>Add mobile menu</li>
                         </ul>
                     </div>
                     <div>
                         <h2 className="mb-2 font-bold">Future List</h2>
                         <ul className="list-disc">
-                            <li>Add mobile menu</li>
                             <li>Add categories</li>
                             <li>Add tags</li>
                             <li>Pull feed from Fediverse</li>
@@ -35,8 +32,17 @@ export default function RoadMap() {
                             <li>Ability to Buy Prints</li>
                             <li>Archive List</li>
                             <li>Sorting / Filtering</li>
+                            <li>Internal uploads/albums that aren't public</li>
                         </ul>
                     </div>
+                </div>
+                <div>
+                    <h2 className="mb-2 font-bold">Completed List</h2>
+                        <ul className="list-disc">
+                            <li>Add better image quality</li>
+                            <li>Create new dev branch</li>
+                            <li>Designed new story / gallery view</li>
+                        </ul>
                 </div>
             </div>
         </>
